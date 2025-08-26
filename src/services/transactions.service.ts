@@ -9,6 +9,27 @@ export class TransactionService {
   }
 
   public async processTransaction(transactionData: TransactionRequest) {
+    // Check if reference already exists for this merchant
+    const referenceExists = await this.transactionModel.referenceExists(
+      transactionData.reference,
+      transactionData.merchantId
+    );
+
+    if (referenceExists) {
+      const transaction = await this.transactionModel.create(
+        transactionData,
+        "DECLINED",
+        "05",
+        "Duplicate transaction reference"
+      );
+      return {
+        status: "DECLINED",
+        reasonCode: "05",
+        message: "Duplicate transaction reference",
+        transaction,
+      };
+    }
+
     const transaction = await this.transactionModel.create(
       transactionData,
       "SUCCESS"
