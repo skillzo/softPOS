@@ -1,0 +1,54 @@
+{
+  "name": "softpos-transaction-handler",
+  "version": "1.0.0",
+  "description": "Mock NFC tap-to-pay handler for transaction validation and logging",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "softpos",
+    "nfc",
+    "payments",
+    "transactions",
+    "express",
+    "nodejs"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "better-sqlite3": "^9.2.2",
+    "zod": "^3.22.4",
+    "winston": "^3.11.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/cors": "^2.8.17",
+    "@types/jest": "^29.5.8",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
